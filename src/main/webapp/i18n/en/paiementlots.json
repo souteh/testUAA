@@ -1,0 +1,29 @@
+{
+  "testUaaApp": {
+    "paiementlots": {
+      "home": {
+        "title": "Paiementlots",
+        "createLabel": "Create a new Paiementlots",
+        "createOrEditLabel": "Create or edit a Paiementlots",
+        "notFound": "No Paiementlots found"
+      },
+      "created": "A new Paiementlots is created with identifier {{ param }}",
+      "updated": "A Paiementlots is updated with identifier {{ param }}",
+      "deleted": "A Paiementlots is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Paiementlots {{ id }}?"
+      },
+      "detail": {
+        "title": "Paiementlots"
+      },
+      "idlotpaiement": "Idlotpaiement",
+      "codepaiement": "Codepaiement",
+      "type": "Type",
+      "seuil": "Seuil",
+      "montantavance": "Montantavance",
+      "delaipurge": "Delaipurge",
+      "lieuautorise": "Lieuautorise",
+      "lieuannulation": "Lieuannulation"
+    }
+  }
+}

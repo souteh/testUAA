@@ -1,0 +1,40 @@
+{
+  "name": "Commandesensible",
+  "fields": [
+    {
+      "fieldName": "idcommandesensible",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "codecommandesensible",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "254"
+    },
+    {
+      "fieldName": "libellecommandesensible",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "254"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200817130238",
+  "entityTableName": "commandesensible",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

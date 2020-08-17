@@ -1,0 +1,164 @@
+entity Agence {
+	idagence Integer required,
+	codeagence String maxlength(254),
+	numero Integer,
+	nom String maxlength(254),
+	adresse String maxlength(254)
+}
+
+entity Alertemail {
+	idalertemail Integer required,
+	codealertemail String maxlength(254),
+	typealertemail String maxlength(254),
+	objetalertemail String maxlength(254),
+	adressemaildiffusion String maxlength(254)
+}
+
+entity Attributaire {
+	idattributaire Integer required,
+	libelle String maxlength(254),
+	codeattributaire String maxlength(254)
+}
+
+entity Choisit {
+	idproduit Integer required
+}
+
+entity Commandesensible {
+	idcommandesensible Integer required,
+	codecommandesensible String maxlength(254),
+	libellecommandesensible String maxlength(254)
+}
+
+entity Delaiannulation {
+	iddelaiannulation Integer required,
+	codedelaiannulation String maxlength(254),
+	designationdelaiannulation String maxlength(254),
+	valeurdelaiannulation Integer,
+	statut String maxlength(254)
+}
+
+entity Hypodrome {
+	idhypodrome Integer required,
+	codehypodrome Integer,
+	abreviation String maxlength(254),
+	pays String maxlength(254)
+}
+
+
+
+entity I18nTextTranslation {
+	id Integer required,
+	lang String required maxlength(45),
+	translation String required maxlength(512),
+	i18nTextId Integer required
+}
+
+entity Paiementlots {
+	idlotpaiement Integer required,
+	codepaiement String maxlength(254),
+	type String maxlength(254),
+	seuil Integer,
+	montantavance Integer,
+	delaipurge Integer,
+	lieuautorise String maxlength(254),
+	lieuannulation String maxlength(254)
+}
+
+entity Pays {
+	idpays Integer required,
+	codepays String maxlength(254),
+	designation String maxlength(254)
+}
+
+entity Pdv {
+	id Integer required,
+	numero Integer required,
+	agence String maxlength(64),
+	designation String maxlength(64),
+	ville String maxlength(64),
+	statut String maxlength(64)
+}
+
+entity Produit {
+	idproduit Integer required,
+	designation String maxlength(254),
+	libelle String maxlength(254),
+	codeproduit String maxlength(254),
+	enjeumin Integer,
+	ordre String maxlength(254),
+	nbrechevauxbase Integer,
+	nbreminpartant Integer,
+	champx Integer,
+	express Integer,
+	appartenance String maxlength(254),
+	enjeumax Integer,
+	statut String maxlength(254)
+}
+
+entity Smtp {
+	idsmtp Integer required,
+	codesmtp String maxlength(254),
+	adresseipsmtp String maxlength(254),
+	authentification String maxlength(254),
+	statut String maxlength(254),
+	login String maxlength(254),
+	password String maxlength(254)
+}
+
+entity Typepdv {
+	idtypepdv Integer required,
+	reftypepdv String maxlength(254),
+	type String maxlength(254),
+	nbremaxterminaux Integer,
+	plafondpostpaye Integer
+}
+
+entity Typeterminal {
+	idtypeterminal Integer required,
+	codetypeterminal String maxlength(254),
+	libelle String maxlength(254)
+}
+
+entity Version {
+	idversion Integer required,
+	refversion String maxlength(254),
+	libelle String maxlength(254),
+	date Instant,
+	fichier String maxlength(254)
+}
+
+entity Ville {
+	idville Integer required,
+	designation Integer,
+	codeville String maxlength(254)
+}
+
+entity Voucher {
+	idvoucher Integer required,
+	codevoucher String maxlength(254),
+	statut String maxlength(254),
+	lieu String maxlength(254),
+	seuil Integer,
+	delaipurge Integer,
+	plafond Integer
+}
+
+
+
+// Relations
+relationship ManyToOne {
+	Choisit{idattributaire required} to Attributaire
+}
+
+relationship ManyToOne {
+	Version{idtypeterminal required} to Typeterminal
+}
+
+
+
+// Options
+service * with serviceImpl
+paginate * with pagination
+filter *
+

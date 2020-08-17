@@ -1,0 +1,24 @@
+{
+  "testUaaApp": {
+    "attributaire": {
+      "home": {
+        "title": "Attributaires",
+        "createLabel": "Create a new Attributaire",
+        "createOrEditLabel": "Create or edit a Attributaire",
+        "notFound": "No Attributaires found"
+      },
+      "created": "A new Attributaire is created with identifier {{ param }}",
+      "updated": "A Attributaire is updated with identifier {{ param }}",
+      "deleted": "A Attributaire is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Attributaire {{ id }}?"
+      },
+      "detail": {
+        "title": "Attributaire"
+      },
+      "idattributaire": "Idattributaire",
+      "libelle": "Libelle",
+      "codeattributaire": "Codeattributaire"
+    }
+  }
+}

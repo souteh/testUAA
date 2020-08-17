@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-smtp-heading" jhiTranslate="testUaaApp.smtp.home.createOrEditLabel">Create or edit a Smtp</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.smtp.idsmtp" for="field_idsmtp">Idsmtp</label>
+                    <input type="number" class="form-control" name="idsmtp" id="field_idsmtp"
+                           formControlName="idsmtp"/>
+                    <div *ngIf="editForm.get('idsmtp')!.invalid && (editForm.get('idsmtp')!.dirty || editForm.get('idsmtp')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idsmtp')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idsmtp')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.smtp.codesmtp" for="field_codesmtp">Codesmtp</label>
+                    <input type="text" class="form-control" name="codesmtp" id="field_codesmtp"
+                           formControlName="codesmtp"/>
+                    <div *ngIf="editForm.get('codesmtp')!.invalid && (editForm.get('codesmtp')!.dirty || editForm.get('codesmtp')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codesmtp')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.smtp.adresseipsmtp" for="field_adresseipsmtp">Adresseipsmtp</label>
+                    <input type="text" class="form-control" name="adresseipsmtp" id="field_adresseipsmtp"
+                           formControlName="adresseipsmtp"/>
+                    <div *ngIf="editForm.get('adresseipsmtp')!.invalid && (editForm.get('adresseipsmtp')!.dirty || editForm.get('adresseipsmtp')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adresseipsmtp')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.smtp.authentification" for="field_authentification">Authentification</label>
+                    <input type="text" class="form-control" name="authentification" id="field_authentification"
+                           formControlName="authentification"/>
+                    <div *ngIf="editForm.get('authentification')!.invalid && (editForm.get('authentification')!.dirty || editForm.get('authentification')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('authentification')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.smtp.statut" for="field_statut">Statut</label>
+                    <input type="text" class="form-control" name="statut" id="field_statut"
+                           formControlName="statut"/>
+                    <div *ngIf="editForm.get('statut')!.invalid && (editForm.get('statut')!.dirty || editForm.get('statut')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('statut')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.smtp.login" for="field_login">Login</label>
+                    <input type="text" class="form-control" name="login" id="field_login"
+                           formControlName="login"/>
+                    <div *ngIf="editForm.get('login')!.invalid && (editForm.get('login')!.dirty || editForm.get('login')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('login')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.smtp.password" for="field_password">Password</label>
+                    <input type="text" class="form-control" name="password" id="field_password"
+                           formControlName="password"/>
+                    <div *ngIf="editForm.get('password')!.invalid && (editForm.get('password')!.dirty || editForm.get('password')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('password')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

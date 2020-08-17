@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typepdv">
+            <h2><span jhiTranslate="testUaaApp.typepdv.detail.title">Typepdv</span> {{ typepdv.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.typepdv.idtypepdv">Idtypepdv</span></dt>
+                <dd>
+                    <span>{{ typepdv.idtypepdv }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.typepdv.reftypepdv">Reftypepdv</span></dt>
+                <dd>
+                    <span>{{ typepdv.reftypepdv }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.typepdv.type">Type</span></dt>
+                <dd>
+                    <span>{{ typepdv.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.typepdv.nbremaxterminaux">Nbremaxterminaux</span></dt>
+                <dd>
+                    <span>{{ typepdv.nbremaxterminaux }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.typepdv.plafondpostpaye">Plafondpostpaye</span></dt>
+                <dd>
+                    <span>{{ typepdv.plafondpostpaye }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/typepdv', typepdv.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

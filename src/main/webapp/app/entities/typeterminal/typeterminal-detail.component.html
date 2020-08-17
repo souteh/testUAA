@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeterminal">
+            <h2><span jhiTranslate="testUaaApp.typeterminal.detail.title">Typeterminal</span> {{ typeterminal.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.typeterminal.idtypeterminal">Idtypeterminal</span></dt>
+                <dd>
+                    <span>{{ typeterminal.idtypeterminal }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.typeterminal.codetypeterminal">Codetypeterminal</span></dt>
+                <dd>
+                    <span>{{ typeterminal.codetypeterminal }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.typeterminal.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ typeterminal.libelle }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/typeterminal', typeterminal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

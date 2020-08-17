@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="produit">
+            <h2><span jhiTranslate="testUaaApp.produit.detail.title">Produit</span> {{ produit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.produit.idproduit">Idproduit</span></dt>
+                <dd>
+                    <span>{{ produit.idproduit }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.designation">Designation</span></dt>
+                <dd>
+                    <span>{{ produit.designation }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ produit.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.codeproduit">Codeproduit</span></dt>
+                <dd>
+                    <span>{{ produit.codeproduit }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.enjeumin">Enjeumin</span></dt>
+                <dd>
+                    <span>{{ produit.enjeumin }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.ordre">Ordre</span></dt>
+                <dd>
+                    <span>{{ produit.ordre }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.nbrechevauxbase">Nbrechevauxbase</span></dt>
+                <dd>
+                    <span>{{ produit.nbrechevauxbase }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.nbreminpartant">Nbreminpartant</span></dt>
+                <dd>
+                    <span>{{ produit.nbreminpartant }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.champx">Champx</span></dt>
+                <dd>
+                    <span>{{ produit.champx }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.express">Express</span></dt>
+                <dd>
+                    <span>{{ produit.express }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.appartenance">Appartenance</span></dt>
+                <dd>
+                    <span>{{ produit.appartenance }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.enjeumax">Enjeumax</span></dt>
+                <dd>
+                    <span>{{ produit.enjeumax }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.produit.statut">Statut</span></dt>
+                <dd>
+                    <span>{{ produit.statut }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/produit', produit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-alertemail-heading" jhiTranslate="testUaaApp.alertemail.home.createOrEditLabel">Create or edit a Alertemail</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.alertemail.idalertemail" for="field_idalertemail">Idalertemail</label>
+                    <input type="number" class="form-control" name="idalertemail" id="field_idalertemail"
+                           formControlName="idalertemail"/>
+                    <div *ngIf="editForm.get('idalertemail')!.invalid && (editForm.get('idalertemail')!.dirty || editForm.get('idalertemail')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idalertemail')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idalertemail')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.alertemail.codealertemail" for="field_codealertemail">Codealertemail</label>
+                    <input type="text" class="form-control" name="codealertemail" id="field_codealertemail"
+                           formControlName="codealertemail"/>
+                    <div *ngIf="editForm.get('codealertemail')!.invalid && (editForm.get('codealertemail')!.dirty || editForm.get('codealertemail')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codealertemail')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.alertemail.typealertemail" for="field_typealertemail">Typealertemail</label>
+                    <input type="text" class="form-control" name="typealertemail" id="field_typealertemail"
+                           formControlName="typealertemail"/>
+                    <div *ngIf="editForm.get('typealertemail')!.invalid && (editForm.get('typealertemail')!.dirty || editForm.get('typealertemail')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('typealertemail')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.alertemail.objetalertemail" for="field_objetalertemail">Objetalertemail</label>
+                    <input type="text" class="form-control" name="objetalertemail" id="field_objetalertemail"
+                           formControlName="objetalertemail"/>
+                    <div *ngIf="editForm.get('objetalertemail')!.invalid && (editForm.get('objetalertemail')!.dirty || editForm.get('objetalertemail')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('objetalertemail')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.alertemail.adressemaildiffusion" for="field_adressemaildiffusion">Adressemaildiffusion</label>
+                    <input type="text" class="form-control" name="adressemaildiffusion" id="field_adressemaildiffusion"
+                           formControlName="adressemaildiffusion"/>
+                    <div *ngIf="editForm.get('adressemaildiffusion')!.invalid && (editForm.get('adressemaildiffusion')!.dirty || editForm.get('adressemaildiffusion')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adressemaildiffusion')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

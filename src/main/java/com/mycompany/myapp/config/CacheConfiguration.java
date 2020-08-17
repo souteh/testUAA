@@ -50,6 +50,24 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.Agence.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Alertemail.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Attributaire.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Choisit.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Commandesensible.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Delaiannulation.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Hypodrome.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.I18nTextTranslation.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Paiementlots.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Pays.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Pdv.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Produit.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Smtp.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Typepdv.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Typeterminal.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Version.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Ville.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Voucher.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

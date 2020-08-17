@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-paiementlots-heading" jhiTranslate="testUaaApp.paiementlots.home.createOrEditLabel">Create or edit a Paiementlots</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.paiementlots.idlotpaiement" for="field_idlotpaiement">Idlotpaiement</label>
+                    <input type="number" class="form-control" name="idlotpaiement" id="field_idlotpaiement"
+                           formControlName="idlotpaiement"/>
+                    <div *ngIf="editForm.get('idlotpaiement')!.invalid && (editForm.get('idlotpaiement')!.dirty || editForm.get('idlotpaiement')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idlotpaiement')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idlotpaiement')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.paiementlots.codepaiement" for="field_codepaiement">Codepaiement</label>
+                    <input type="text" class="form-control" name="codepaiement" id="field_codepaiement"
+                           formControlName="codepaiement"/>
+                    <div *ngIf="editForm.get('codepaiement')!.invalid && (editForm.get('codepaiement')!.dirty || editForm.get('codepaiement')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codepaiement')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.paiementlots.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                    <div *ngIf="editForm.get('type')!.invalid && (editForm.get('type')!.dirty || editForm.get('type')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('type')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.paiementlots.seuil" for="field_seuil">Seuil</label>
+                    <input type="number" class="form-control" name="seuil" id="field_seuil"
+                           formControlName="seuil"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.paiementlots.montantavance" for="field_montantavance">Montantavance</label>
+                    <input type="number" class="form-control" name="montantavance" id="field_montantavance"
+                           formControlName="montantavance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.paiementlots.delaipurge" for="field_delaipurge">Delaipurge</label>
+                    <input type="number" class="form-control" name="delaipurge" id="field_delaipurge"
+                           formControlName="delaipurge"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.paiementlots.lieuautorise" for="field_lieuautorise">Lieuautorise</label>
+                    <input type="text" class="form-control" name="lieuautorise" id="field_lieuautorise"
+                           formControlName="lieuautorise"/>
+                    <div *ngIf="editForm.get('lieuautorise')!.invalid && (editForm.get('lieuautorise')!.dirty || editForm.get('lieuautorise')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lieuautorise')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.paiementlots.lieuannulation" for="field_lieuannulation">Lieuannulation</label>
+                    <input type="text" class="form-control" name="lieuannulation" id="field_lieuannulation"
+                           formControlName="lieuannulation"/>
+                    <div *ngIf="editForm.get('lieuannulation')!.invalid && (editForm.get('lieuannulation')!.dirty || editForm.get('lieuannulation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lieuannulation')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

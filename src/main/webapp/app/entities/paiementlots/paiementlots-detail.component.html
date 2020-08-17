@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paiementlots">
+            <h2><span jhiTranslate="testUaaApp.paiementlots.detail.title">Paiementlots</span> {{ paiementlots.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.paiementlots.idlotpaiement">Idlotpaiement</span></dt>
+                <dd>
+                    <span>{{ paiementlots.idlotpaiement }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.paiementlots.codepaiement">Codepaiement</span></dt>
+                <dd>
+                    <span>{{ paiementlots.codepaiement }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.paiementlots.type">Type</span></dt>
+                <dd>
+                    <span>{{ paiementlots.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.paiementlots.seuil">Seuil</span></dt>
+                <dd>
+                    <span>{{ paiementlots.seuil }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.paiementlots.montantavance">Montantavance</span></dt>
+                <dd>
+                    <span>{{ paiementlots.montantavance }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.paiementlots.delaipurge">Delaipurge</span></dt>
+                <dd>
+                    <span>{{ paiementlots.delaipurge }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.paiementlots.lieuautorise">Lieuautorise</span></dt>
+                <dd>
+                    <span>{{ paiementlots.lieuautorise }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.paiementlots.lieuannulation">Lieuannulation</span></dt>
+                <dd>
+                    <span>{{ paiementlots.lieuannulation }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/paiementlots', paiementlots.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

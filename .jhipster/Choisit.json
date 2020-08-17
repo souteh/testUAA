@@ -1,0 +1,33 @@
+{
+  "name": "Choisit",
+  "fields": [
+    {
+      "fieldName": "idproduit",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "attributaire",
+      "otherEntityRelationshipName": "choisit",
+      "relationshipValidateRules": "required",
+      "relationshipName": "idattributaire",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200817130138",
+  "entityTableName": "choisit",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

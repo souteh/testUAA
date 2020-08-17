@@ -1,0 +1,24 @@
+{
+  "testUaaApp": {
+    "commandesensible": {
+      "home": {
+        "title": "Commandesensibles",
+        "createLabel": "Create a new Commandesensible",
+        "createOrEditLabel": "Create or edit a Commandesensible",
+        "notFound": "No Commandesensibles found"
+      },
+      "created": "A new Commandesensible is created with identifier {{ param }}",
+      "updated": "A Commandesensible is updated with identifier {{ param }}",
+      "deleted": "A Commandesensible is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Commandesensible {{ id }}?"
+      },
+      "detail": {
+        "title": "Commandesensible"
+      },
+      "idcommandesensible": "Idcommandesensible",
+      "codecommandesensible": "Codecommandesensible",
+      "libellecommandesensible": "Libellecommandesensible"
+    }
+  }
+}

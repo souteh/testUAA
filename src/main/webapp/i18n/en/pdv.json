@@ -1,0 +1,26 @@
+{
+  "testUaaApp": {
+    "pdv": {
+      "home": {
+        "title": "Pdvs",
+        "createLabel": "Create a new Pdv",
+        "createOrEditLabel": "Create or edit a Pdv",
+        "notFound": "No Pdvs found"
+      },
+      "created": "A new Pdv is created with identifier {{ param }}",
+      "updated": "A Pdv is updated with identifier {{ param }}",
+      "deleted": "A Pdv is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pdv {{ id }}?"
+      },
+      "detail": {
+        "title": "Pdv"
+      },
+      "numero": "Numero",
+      "agence": "Agence",
+      "designation": "Designation",
+      "ville": "Ville",
+      "statut": "Statut"
+    }
+  }
+}

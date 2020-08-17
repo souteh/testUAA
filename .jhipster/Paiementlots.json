@@ -1,0 +1,68 @@
+{
+  "name": "Paiementlots",
+  "fields": [
+    {
+      "fieldName": "idlotpaiement",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "codepaiement",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "254"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "254"
+    },
+    {
+      "fieldName": "seuil",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "montantavance",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "delaipurge",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lieuautorise",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "254"
+    },
+    {
+      "fieldName": "lieuannulation",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "254"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200817130638",
+  "entityTableName": "paiementlots",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
