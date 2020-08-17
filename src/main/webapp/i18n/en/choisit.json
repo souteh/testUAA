@@ -1,0 +1,23 @@
+{
+  "testUaaApp": {
+    "choisit": {
+      "home": {
+        "title": "Choisits",
+        "createLabel": "Create a new Choisit",
+        "createOrEditLabel": "Create or edit a Choisit",
+        "notFound": "No Choisits found"
+      },
+      "created": "A new Choisit is created with identifier {{ param }}",
+      "updated": "A Choisit is updated with identifier {{ param }}",
+      "deleted": "A Choisit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Choisit {{ id }}?"
+      },
+      "detail": {
+        "title": "Choisit"
+      },
+      "idproduit": "Idproduit",
+      "idattributaire": "Idattributaire"
+    }
+  }
+}

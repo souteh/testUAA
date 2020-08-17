@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="i18nTextTranslation">
+            <h2><span jhiTranslate="testUaaApp.i18nTextTranslation.detail.title">I 18 N Text Translation</span> {{ i18nTextTranslation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.i18nTextTranslation.lang">Lang</span></dt>
+                <dd>
+                    <span>{{ i18nTextTranslation.lang }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.i18nTextTranslation.translation">Translation</span></dt>
+                <dd>
+                    <span>{{ i18nTextTranslation.translation }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.i18nTextTranslation.i18nTextId">I 18 N Text Id</span></dt>
+                <dd>
+                    <span>{{ i18nTextTranslation.i18nTextId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/i-18-n-text-translation', i18nTextTranslation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

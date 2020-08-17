@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testUaaApp.produit.home.title">Produits</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-produit" [routerLink]="['/produit/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="testUaaApp.produit.home.createLabel">
+            Create a new Produit
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="produits?.length === 0">
+        <span jhiTranslate="testUaaApp.produit.home.notFound">No produits found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="produits && produits.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idproduit"><span jhiTranslate="testUaaApp.produit.idproduit">Idproduit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="designation"><span jhiTranslate="testUaaApp.produit.designation">Designation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="testUaaApp.produit.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeproduit"><span jhiTranslate="testUaaApp.produit.codeproduit">Codeproduit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enjeumin"><span jhiTranslate="testUaaApp.produit.enjeumin">Enjeumin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ordre"><span jhiTranslate="testUaaApp.produit.ordre">Ordre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbrechevauxbase"><span jhiTranslate="testUaaApp.produit.nbrechevauxbase">Nbrechevauxbase</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbreminpartant"><span jhiTranslate="testUaaApp.produit.nbreminpartant">Nbreminpartant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="champx"><span jhiTranslate="testUaaApp.produit.champx">Champx</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="express"><span jhiTranslate="testUaaApp.produit.express">Express</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="appartenance"><span jhiTranslate="testUaaApp.produit.appartenance">Appartenance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enjeumax"><span jhiTranslate="testUaaApp.produit.enjeumax">Enjeumax</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="statut"><span jhiTranslate="testUaaApp.produit.statut">Statut</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let produit of produits ;trackBy: trackId">
+                    <td><a [routerLink]="['/produit', produit.id, 'view']">{{ produit.id }}</a></td>
+                    <td>{{ produit.idproduit }}</td>
+                    <td>{{ produit.designation }}</td>
+                    <td>{{ produit.libelle }}</td>
+                    <td>{{ produit.codeproduit }}</td>
+                    <td>{{ produit.enjeumin }}</td>
+                    <td>{{ produit.ordre }}</td>
+                    <td>{{ produit.nbrechevauxbase }}</td>
+                    <td>{{ produit.nbreminpartant }}</td>
+                    <td>{{ produit.champx }}</td>
+                    <td>{{ produit.express }}</td>
+                    <td>{{ produit.appartenance }}</td>
+                    <td>{{ produit.enjeumax }}</td>
+                    <td>{{ produit.statut }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/produit', produit.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/produit', produit.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(produit)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="produits && produits.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

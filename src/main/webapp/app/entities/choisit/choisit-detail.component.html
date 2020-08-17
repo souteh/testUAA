@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="choisit">
+            <h2><span jhiTranslate="testUaaApp.choisit.detail.title">Choisit</span> {{ choisit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.choisit.idproduit">Idproduit</span></dt>
+                <dd>
+                    <span>{{ choisit.idproduit }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.choisit.idattributaire">Idattributaire</span></dt>
+                <dd>
+                    <div *ngIf="choisit.idattributaire">
+                        <a [routerLink]="['/attributaire', choisit.idattributaire?.id, 'view']">{{ choisit.idattributaire?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/choisit', choisit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

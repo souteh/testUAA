@@ -1,0 +1,28 @@
+{
+  "testUaaApp": {
+    "smtp": {
+      "home": {
+        "title": "Smtps",
+        "createLabel": "Create a new Smtp",
+        "createOrEditLabel": "Create or edit a Smtp",
+        "notFound": "No Smtps found"
+      },
+      "created": "A new Smtp is created with identifier {{ param }}",
+      "updated": "A Smtp is updated with identifier {{ param }}",
+      "deleted": "A Smtp is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Smtp {{ id }}?"
+      },
+      "detail": {
+        "title": "Smtp"
+      },
+      "idsmtp": "Idsmtp",
+      "codesmtp": "Codesmtp",
+      "adresseipsmtp": "Adresseipsmtp",
+      "authentification": "Authentification",
+      "statut": "Statut",
+      "login": "Login",
+      "password": "Password"
+    }
+  }
+}

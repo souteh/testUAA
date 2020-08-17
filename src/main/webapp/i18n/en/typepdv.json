@@ -1,0 +1,26 @@
+{
+  "testUaaApp": {
+    "typepdv": {
+      "home": {
+        "title": "Typepdvs",
+        "createLabel": "Create a new Typepdv",
+        "createOrEditLabel": "Create or edit a Typepdv",
+        "notFound": "No Typepdvs found"
+      },
+      "created": "A new Typepdv is created with identifier {{ param }}",
+      "updated": "A Typepdv is updated with identifier {{ param }}",
+      "deleted": "A Typepdv is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Typepdv {{ id }}?"
+      },
+      "detail": {
+        "title": "Typepdv"
+      },
+      "idtypepdv": "Idtypepdv",
+      "reftypepdv": "Reftypepdv",
+      "type": "Type",
+      "nbremaxterminaux": "Nbremaxterminaux",
+      "plafondpostpaye": "Plafondpostpaye"
+    }
+  }
+}

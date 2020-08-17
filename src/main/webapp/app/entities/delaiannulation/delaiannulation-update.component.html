@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-delaiannulation-heading" jhiTranslate="testUaaApp.delaiannulation.home.createOrEditLabel">Create or edit a Delaiannulation</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.delaiannulation.iddelaiannulation" for="field_iddelaiannulation">Iddelaiannulation</label>
+                    <input type="number" class="form-control" name="iddelaiannulation" id="field_iddelaiannulation"
+                           formControlName="iddelaiannulation"/>
+                    <div *ngIf="editForm.get('iddelaiannulation')!.invalid && (editForm.get('iddelaiannulation')!.dirty || editForm.get('iddelaiannulation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('iddelaiannulation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('iddelaiannulation')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.delaiannulation.codedelaiannulation" for="field_codedelaiannulation">Codedelaiannulation</label>
+                    <input type="text" class="form-control" name="codedelaiannulation" id="field_codedelaiannulation"
+                           formControlName="codedelaiannulation"/>
+                    <div *ngIf="editForm.get('codedelaiannulation')!.invalid && (editForm.get('codedelaiannulation')!.dirty || editForm.get('codedelaiannulation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codedelaiannulation')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.delaiannulation.designationdelaiannulation" for="field_designationdelaiannulation">Designationdelaiannulation</label>
+                    <input type="text" class="form-control" name="designationdelaiannulation" id="field_designationdelaiannulation"
+                           formControlName="designationdelaiannulation"/>
+                    <div *ngIf="editForm.get('designationdelaiannulation')!.invalid && (editForm.get('designationdelaiannulation')!.dirty || editForm.get('designationdelaiannulation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('designationdelaiannulation')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.delaiannulation.valeurdelaiannulation" for="field_valeurdelaiannulation">Valeurdelaiannulation</label>
+                    <input type="number" class="form-control" name="valeurdelaiannulation" id="field_valeurdelaiannulation"
+                           formControlName="valeurdelaiannulation"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.delaiannulation.statut" for="field_statut">Statut</label>
+                    <input type="text" class="form-control" name="statut" id="field_statut"
+                           formControlName="statut"/>
+                    <div *ngIf="editForm.get('statut')!.invalid && (editForm.get('statut')!.dirty || editForm.get('statut')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('statut')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

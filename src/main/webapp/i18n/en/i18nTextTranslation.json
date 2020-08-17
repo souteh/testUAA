@@ -1,0 +1,24 @@
+{
+  "testUaaApp": {
+    "i18nTextTranslation": {
+      "home": {
+        "title": "I 18 N Text Translations",
+        "createLabel": "Create a new I 18 N Text Translation",
+        "createOrEditLabel": "Create or edit a I 18 N Text Translation",
+        "notFound": "No I 18 N Text Translations found"
+      },
+      "created": "A new I 18 N Text Translation is created with identifier {{ param }}",
+      "updated": "A I 18 N Text Translation is updated with identifier {{ param }}",
+      "deleted": "A I 18 N Text Translation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete I 18 N Text Translation {{ id }}?"
+      },
+      "detail": {
+        "title": "I 18 N Text Translation"
+      },
+      "lang": "Lang",
+      "translation": "Translation",
+      "i18nTextId": "I 18 N Text Id"
+    }
+  }
+}

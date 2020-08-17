@@ -1,0 +1,26 @@
+{
+  "testUaaApp": {
+    "alertemail": {
+      "home": {
+        "title": "Alertemails",
+        "createLabel": "Create a new Alertemail",
+        "createOrEditLabel": "Create or edit a Alertemail",
+        "notFound": "No Alertemails found"
+      },
+      "created": "A new Alertemail is created with identifier {{ param }}",
+      "updated": "A Alertemail is updated with identifier {{ param }}",
+      "deleted": "A Alertemail is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Alertemail {{ id }}?"
+      },
+      "detail": {
+        "title": "Alertemail"
+      },
+      "idalertemail": "Idalertemail",
+      "codealertemail": "Codealertemail",
+      "typealertemail": "Typealertemail",
+      "objetalertemail": "Objetalertemail",
+      "adressemaildiffusion": "Adressemaildiffusion"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agence">
+            <h2><span jhiTranslate="testUaaApp.agence.detail.title">Agence</span> {{ agence.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.agence.idagence">Idagence</span></dt>
+                <dd>
+                    <span>{{ agence.idagence }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.agence.codeagence">Codeagence</span></dt>
+                <dd>
+                    <span>{{ agence.codeagence }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.agence.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ agence.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.agence.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ agence.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.agence.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ agence.adresse }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agence', agence.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

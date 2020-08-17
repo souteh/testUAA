@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testUaaApp.version.home.title">Versions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-version" [routerLink]="['/version/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="testUaaApp.version.home.createLabel">
+            Create a new Version
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="versions?.length === 0">
+        <span jhiTranslate="testUaaApp.version.home.notFound">No versions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="versions && versions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idversion"><span jhiTranslate="testUaaApp.version.idversion">Idversion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refversion"><span jhiTranslate="testUaaApp.version.refversion">Refversion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="testUaaApp.version.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="testUaaApp.version.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fichier"><span jhiTranslate="testUaaApp.version.fichier">Fichier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idtypeterminal.id"><span jhiTranslate="testUaaApp.version.idtypeterminal">Idtypeterminal</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let version of versions ;trackBy: trackId">
+                    <td><a [routerLink]="['/version', version.id, 'view']">{{ version.id }}</a></td>
+                    <td>{{ version.idversion }}</td>
+                    <td>{{ version.refversion }}</td>
+                    <td>{{ version.libelle }}</td>
+                    <td>{{ version.date | date:'medium' }}</td>
+                    <td>{{ version.fichier }}</td>
+                    <td>
+                        <div *ngIf="version.idtypeterminal">
+                            <a [routerLink]="['/typeterminal', version.idtypeterminal?.id, 'view']" >{{ version.idtypeterminal?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/version', version.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/version', version.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(version)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="versions && versions.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

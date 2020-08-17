@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="voucher">
+            <h2><span jhiTranslate="testUaaApp.voucher.detail.title">Voucher</span> {{ voucher.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.voucher.idvoucher">Idvoucher</span></dt>
+                <dd>
+                    <span>{{ voucher.idvoucher }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.voucher.codevoucher">Codevoucher</span></dt>
+                <dd>
+                    <span>{{ voucher.codevoucher }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.voucher.statut">Statut</span></dt>
+                <dd>
+                    <span>{{ voucher.statut }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.voucher.lieu">Lieu</span></dt>
+                <dd>
+                    <span>{{ voucher.lieu }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.voucher.seuil">Seuil</span></dt>
+                <dd>
+                    <span>{{ voucher.seuil }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.voucher.delaipurge">Delaipurge</span></dt>
+                <dd>
+                    <span>{{ voucher.delaipurge }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.voucher.plafond">Plafond</span></dt>
+                <dd>
+                    <span>{{ voucher.plafond }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/voucher', voucher.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

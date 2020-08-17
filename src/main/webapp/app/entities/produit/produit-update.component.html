@@ -1,0 +1,150 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-produit-heading" jhiTranslate="testUaaApp.produit.home.createOrEditLabel">Create or edit a Produit</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.idproduit" for="field_idproduit">Idproduit</label>
+                    <input type="number" class="form-control" name="idproduit" id="field_idproduit"
+                           formControlName="idproduit"/>
+                    <div *ngIf="editForm.get('idproduit')!.invalid && (editForm.get('idproduit')!.dirty || editForm.get('idproduit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idproduit')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idproduit')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.designation" for="field_designation">Designation</label>
+                    <input type="text" class="form-control" name="designation" id="field_designation"
+                           formControlName="designation"/>
+                    <div *ngIf="editForm.get('designation')!.invalid && (editForm.get('designation')!.dirty || editForm.get('designation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('designation')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                    <div *ngIf="editForm.get('libelle')!.invalid && (editForm.get('libelle')!.dirty || editForm.get('libelle')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('libelle')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.codeproduit" for="field_codeproduit">Codeproduit</label>
+                    <input type="text" class="form-control" name="codeproduit" id="field_codeproduit"
+                           formControlName="codeproduit"/>
+                    <div *ngIf="editForm.get('codeproduit')!.invalid && (editForm.get('codeproduit')!.dirty || editForm.get('codeproduit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeproduit')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.enjeumin" for="field_enjeumin">Enjeumin</label>
+                    <input type="number" class="form-control" name="enjeumin" id="field_enjeumin"
+                           formControlName="enjeumin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.ordre" for="field_ordre">Ordre</label>
+                    <input type="text" class="form-control" name="ordre" id="field_ordre"
+                           formControlName="ordre"/>
+                    <div *ngIf="editForm.get('ordre')!.invalid && (editForm.get('ordre')!.dirty || editForm.get('ordre')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ordre')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.nbrechevauxbase" for="field_nbrechevauxbase">Nbrechevauxbase</label>
+                    <input type="number" class="form-control" name="nbrechevauxbase" id="field_nbrechevauxbase"
+                           formControlName="nbrechevauxbase"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.nbreminpartant" for="field_nbreminpartant">Nbreminpartant</label>
+                    <input type="number" class="form-control" name="nbreminpartant" id="field_nbreminpartant"
+                           formControlName="nbreminpartant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.champx" for="field_champx">Champx</label>
+                    <input type="number" class="form-control" name="champx" id="field_champx"
+                           formControlName="champx"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.express" for="field_express">Express</label>
+                    <input type="number" class="form-control" name="express" id="field_express"
+                           formControlName="express"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.appartenance" for="field_appartenance">Appartenance</label>
+                    <input type="text" class="form-control" name="appartenance" id="field_appartenance"
+                           formControlName="appartenance"/>
+                    <div *ngIf="editForm.get('appartenance')!.invalid && (editForm.get('appartenance')!.dirty || editForm.get('appartenance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('appartenance')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.enjeumax" for="field_enjeumax">Enjeumax</label>
+                    <input type="number" class="form-control" name="enjeumax" id="field_enjeumax"
+                           formControlName="enjeumax"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.produit.statut" for="field_statut">Statut</label>
+                    <input type="text" class="form-control" name="statut" id="field_statut"
+                           formControlName="statut"/>
+                    <div *ngIf="editForm.get('statut')!.invalid && (editForm.get('statut')!.dirty || editForm.get('statut')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('statut')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

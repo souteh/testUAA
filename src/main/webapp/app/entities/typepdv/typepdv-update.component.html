@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-typepdv-heading" jhiTranslate="testUaaApp.typepdv.home.createOrEditLabel">Create or edit a Typepdv</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.typepdv.idtypepdv" for="field_idtypepdv">Idtypepdv</label>
+                    <input type="number" class="form-control" name="idtypepdv" id="field_idtypepdv"
+                           formControlName="idtypepdv"/>
+                    <div *ngIf="editForm.get('idtypepdv')!.invalid && (editForm.get('idtypepdv')!.dirty || editForm.get('idtypepdv')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idtypepdv')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idtypepdv')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.typepdv.reftypepdv" for="field_reftypepdv">Reftypepdv</label>
+                    <input type="text" class="form-control" name="reftypepdv" id="field_reftypepdv"
+                           formControlName="reftypepdv"/>
+                    <div *ngIf="editForm.get('reftypepdv')!.invalid && (editForm.get('reftypepdv')!.dirty || editForm.get('reftypepdv')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('reftypepdv')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.typepdv.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                    <div *ngIf="editForm.get('type')!.invalid && (editForm.get('type')!.dirty || editForm.get('type')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('type')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 254 }">
+                        This field cannot be longer than 254 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.typepdv.nbremaxterminaux" for="field_nbremaxterminaux">Nbremaxterminaux</label>
+                    <input type="number" class="form-control" name="nbremaxterminaux" id="field_nbremaxterminaux"
+                           formControlName="nbremaxterminaux"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testUaaApp.typepdv.plafondpostpaye" for="field_plafondpostpaye">Plafondpostpaye</label>
+                    <input type="number" class="form-control" name="plafondpostpaye" id="field_plafondpostpaye"
+                           formControlName="plafondpostpaye"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

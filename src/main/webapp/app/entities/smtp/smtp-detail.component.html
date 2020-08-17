@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="smtp">
+            <h2><span jhiTranslate="testUaaApp.smtp.detail.title">Smtp</span> {{ smtp.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.smtp.idsmtp">Idsmtp</span></dt>
+                <dd>
+                    <span>{{ smtp.idsmtp }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.smtp.codesmtp">Codesmtp</span></dt>
+                <dd>
+                    <span>{{ smtp.codesmtp }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.smtp.adresseipsmtp">Adresseipsmtp</span></dt>
+                <dd>
+                    <span>{{ smtp.adresseipsmtp }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.smtp.authentification">Authentification</span></dt>
+                <dd>
+                    <span>{{ smtp.authentification }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.smtp.statut">Statut</span></dt>
+                <dd>
+                    <span>{{ smtp.statut }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.smtp.login">Login</span></dt>
+                <dd>
+                    <span>{{ smtp.login }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.smtp.password">Password</span></dt>
+                <dd>
+                    <span>{{ smtp.password }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/smtp', smtp.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

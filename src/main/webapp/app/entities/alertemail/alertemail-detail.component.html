@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="alertemail">
+            <h2><span jhiTranslate="testUaaApp.alertemail.detail.title">Alertemail</span> {{ alertemail.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testUaaApp.alertemail.idalertemail">Idalertemail</span></dt>
+                <dd>
+                    <span>{{ alertemail.idalertemail }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.alertemail.codealertemail">Codealertemail</span></dt>
+                <dd>
+                    <span>{{ alertemail.codealertemail }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.alertemail.typealertemail">Typealertemail</span></dt>
+                <dd>
+                    <span>{{ alertemail.typealertemail }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.alertemail.objetalertemail">Objetalertemail</span></dt>
+                <dd>
+                    <span>{{ alertemail.objetalertemail }}</span>
+                </dd>
+                <dt><span jhiTranslate="testUaaApp.alertemail.adressemaildiffusion">Adressemaildiffusion</span></dt>
+                <dd>
+                    <span>{{ alertemail.adressemaildiffusion }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/alertemail', alertemail.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

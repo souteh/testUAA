@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testUaaApp.commandesensible.home.title">Commandesensibles</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-commandesensible" [routerLink]="['/commandesensible/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="testUaaApp.commandesensible.home.createLabel">
+            Create a new Commandesensible
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="commandesensibles?.length === 0">
+        <span jhiTranslate="testUaaApp.commandesensible.home.notFound">No commandesensibles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="commandesensibles && commandesensibles.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idcommandesensible"><span jhiTranslate="testUaaApp.commandesensible.idcommandesensible">Idcommandesensible</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codecommandesensible"><span jhiTranslate="testUaaApp.commandesensible.codecommandesensible">Codecommandesensible</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libellecommandesensible"><span jhiTranslate="testUaaApp.commandesensible.libellecommandesensible">Libellecommandesensible</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let commandesensible of commandesensibles ;trackBy: trackId">
+                    <td><a [routerLink]="['/commandesensible', commandesensible.id, 'view']">{{ commandesensible.id }}</a></td>
+                    <td>{{ commandesensible.idcommandesensible }}</td>
+                    <td>{{ commandesensible.codecommandesensible }}</td>
+                    <td>{{ commandesensible.libellecommandesensible }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/commandesensible', commandesensible.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/commandesensible', commandesensible.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(commandesensible)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="commandesensibles && commandesensibles.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>
